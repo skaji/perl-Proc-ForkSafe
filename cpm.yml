@@ -1,0 +1,8 @@
+prereqs:
+  runtime:
+    requires:
+      perl: { version: '5.008001' }
+  develop:
+    requires:
+      Test2::V0:
+      Test2::IPC:
