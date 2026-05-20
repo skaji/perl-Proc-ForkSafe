@@ -1,5 +1,6 @@
-use strict;
+use v5.24;
 use warnings;
+use experimental qw(lexical_subs signatures);
 use Test2::V0;
 use Test2::IPC;
 
@@ -7,11 +8,11 @@ use Proc::ForkSafe;
 
 {
     package A;
-    sub new { bless {}, shift }
-    sub foo { "foo" }
+    sub new ($class) { bless {}, $class }
+    sub foo ($self) { "foo" }
 }
 
-my $a = Proc::ForkSafe->wrap(sub { A->new });
+my $a = Proc::ForkSafe->wrap(sub (@) { A->new });
 my $pid = $a->{pid};
 
 is $a->call("foo"), "foo";
