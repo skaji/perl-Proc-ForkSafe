@@ -1,5 +1,3 @@
-[![Actions Status](https://github.com/skaji/perl-Proc-ForkSafe/actions/workflows/test.yml/badge.svg)](https://github.com/skaji/perl-Proc-ForkSafe/actions)
-
 # NAME
 
 Proc::ForkSafe - help make objects fork safe
@@ -17,7 +15,7 @@ Proc::ForkSafe - help make objects fork safe
       }
     }
 
-    my $client = Proc::ForkSafe->wrap(sub { MyPersistentTCPClient->new });
+    my $client = Proc::ForkSafe->wrap(sub (@) { MyPersistentTCPClient->new });
     my $res = $client->call(request => @some_argv);
 
     my $pid = fork // die;
@@ -32,6 +30,13 @@ Proc::ForkSafe - help make objects fork safe
 # DESCRIPTION
 
 Proc::ForkSafe helps make objects fork safe.
+
+# ARTIFACT ATTESTATIONS
+
+GitHub Artifact Attestations are generated for release tarballs uploaded to
+CPAN. If you care about provenance for the uploaded tarballs, see:
+
+[https://github.com/skaji/perl-Proc-ForkSafe/attestations](https://github.com/skaji/perl-Proc-ForkSafe/attestations)
 
 # COPYRIGHT AND LICENSE
 
